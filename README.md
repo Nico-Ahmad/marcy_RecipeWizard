@@ -1,2 +1,3 @@
-# marcy_Mod4Proj
+# Nico & Ahmad presents...
+
 Group Project for the Marcy Lab School
