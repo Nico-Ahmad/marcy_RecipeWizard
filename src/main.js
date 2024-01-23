@@ -30,7 +30,18 @@ const fetchTest = async () => {
   }
 }
 
-const fetch = ()
+const fetcher = async (url) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw Error('fetch failed Status:', response.status)
+
+    const data = await response.json();
+
+    console.log(data)
+  } catch (error) {
+    console.error('caught error', error);
+  }
+}
 
 const main = () => {
   fetchTest()
