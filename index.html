@@ -1,16 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="src/main.js"></script>
     <title>Meal Finder</title>
   </head>
   <body>
     <div id="app">
       <h1>Meal App</h1>
-      <form id="meal-form"></form>
+      <form id="meal-form" aria-label="find meal by ingredient form">
+        <h2>Find Meals By Ingredients!</h2>
+        <label for="ingredient-user-input"></label>
+        <input
+          type="text"
+          id="ingredient-user-input"
+          name="ingredientUserInput"
+        />
+      </form>
+      <div>
+        <!---Meal images/buttons Dynamic-->
+      </div>
     </div>
-    <script type="module" src="src/main.js"></script>
   </body>
 </html>
