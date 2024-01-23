@@ -14,7 +14,7 @@ const fetchMealByIngredient = async (userInput) => {
 
 const fetchTest = async () => {
   try {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=lemon`);
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772`);
     if (!response.ok) throw Error('fetch failed Status:', response.status)
 
     const data = await response.json();
