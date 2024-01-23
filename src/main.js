@@ -1,7 +1,7 @@
 const FetchMealByIngredient = async (userInput) => {
   try {
     const response = await fetch(
-      `www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${userInput}`
     );
     const meals = await response.json();
     console.log('heres the data', meals)
@@ -11,5 +11,22 @@ const FetchMealByIngredient = async (userInput) => {
   } 
 };
 
-const main = () => {};
+
+const fetchTest = async () => {
+  try {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=lemon`);
+    if (!response.ok) console.log("error");
+
+    const data = await response.json();
+
+    console.log(data)
+
+  } catch {
+    console.error('caught error', error)
+  }
+}
+
+const main = () => {
+  fetchTest()
+};
 main();
