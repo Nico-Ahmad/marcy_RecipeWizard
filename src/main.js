@@ -1,7 +1,7 @@
 const FetchMealByIngredient = async (userInput) => {
   try {
     const response = await fetch(
-      `www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`
     );
     const meals = await response.json();
     console.log('heres the data', meals)
@@ -11,5 +11,7 @@ const FetchMealByIngredient = async (userInput) => {
   } 
 };
 
-const main = () => {};
+const main = () => {
+  FetchMealByIngredient();
+};
 main();
