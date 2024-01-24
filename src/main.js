@@ -7,7 +7,7 @@ export const fetcher = async (url) => {
       throw new Error("Fetch failed with status:", response.status);
 
     const data = await response.json();
-    console.log("the meal data", data);
+    //console.log("the meal data", data);
 
     if (data.meals && data.meals.length > 0) {
       const mealsInfo = data.meals.map((theMeal) => {
@@ -45,6 +45,25 @@ export const fetcher = async (url) => {
   }
 };
 
+
+const renderMeals = (meals) => {
+  meals.forEach((meal) => {
+    const imgContainer = document.createElement('div')
+    imgContainer.classList.add('each-image')
+    const img = document.createElement('img')
+    const imgId = meal.id
+    img.setAttribute('img',imgId)
+    img.src = meal.image
+    imgContainer.append(img)
+    const mainContainer = document.querySelector('#meal-images-container')
+   
+    mainContainer.append(imgContainer)
+    console.log(mainContainer)
+   
+    
+
+  })
+}
 const main = async () => {
   // form
 
@@ -58,13 +77,14 @@ const main = async () => {
   // mealById === www.themealdb.com/api/json/v1/1/lookup.php?i=52772
   // mealBy Ingredient === www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
   const mealByIng = await fetcher(mealByIngUrl);
+  renderMeals(mealByIng)
   //
   //console.log("all meals", mealByIng);
   for (const meal of mealByIng) {
     const mealInfoUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.id}`;
-    console.log("Meal by Ingredient:", meal);
+   // console.log("Meal by Ingredient:", meal);
     const mealInfo = await fetcher(mealInfoUrl);
-    console.log("Meal Information:", mealInfo);
+   // console.log("Meal Information:", mealInfo);
   }
   
 };
