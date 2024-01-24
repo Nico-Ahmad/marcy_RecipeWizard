@@ -3,39 +3,27 @@ import { handleSubmit } from "./dom-utils";
 export const fetcher = async (url) => {
   try {
     const response = await fetch(url);
-    if (!response.ok)
-      throw new Error("Fetch failed with status:", response.status);
+    if (!response.ok) throw new Error("Fetch failed with status:", response.status);
 
     const data = await response.json();
-    //console.log("the meal data", data);
 
     if (data.meals && data.meals.length > 0) {
-      const mealsInfo = data.meals.map((theMeal) => {
-        let mealInfo = {};
+      return data.meals.map((theMeal) => {
+        let mealInfo = {
+          image: theMeal.strMealThumb,
+          id: theMeal.idMeal,
+          title: theMeal.strMeal, // You might adjust these based on the data structure
+          // Add other properties as needed
+        };
 
-        if (theMeal.strMealThumb && theMeal.idMeal) {
-          mealInfo.image = theMeal.strMealThumb;
-          mealInfo.id = theMeal.idMeal;
-        }
-
-        if (
-          theMeal.strMeal &&
-          theMeal.strArea &&
-          theMeal.strInstructions &&
-          theMeal.strYoutube &&
-          theMeal.ingredients1
-        ) {
-          mealInfo.title = theMeal.strMeal;
-          mealInfo.origin = theMeal.strArea;
-          mealInfo.instructions = theMeal.strInstructions;
-          mealInfo.youtubeUrl = theMeal.strYoutube;
-          
-        }
+        // Add additional properties if they exist
+        if (theMeal.strArea) mealInfo.origin = theMeal.strArea;
+        if (theMeal.strInstructions) mealInfo.instructions = theMeal.strInstructions;
+        if (theMeal.strYoutube) mealInfo.youtubeUrl = theMeal.strYoutube;
+        // Handle other properties similarly
 
         return mealInfo;
       });
-
-      return mealsInfo;
     } else {
       return null;
     }
@@ -58,36 +46,67 @@ export const fetchAndRenderMealsByIngredient = async (ingredient) => {
       // Process mealInfo as needed
     }
   } else {
-    console.log('no meals')
+    console.log("no meals");
   }
 };
 
-
 const renderMeals = (meals) => {
-  const mainContainer = document.querySelector('#meal-images-container');
+  const mainContainer = document.querySelector("#meal-images-container");
 
   // Clear the container once before the loop
-  mainContainer.innerHTML = '';
+  mainContainer.innerHTML = "";
 
   meals.forEach((meal) => {
-    const imgContainer = document.createElement('div');
-    imgContainer.classList.add('each-image');
+    const imgContainer = document.createElement("div");
+    imgContainer.classList.add("each-image");
+    imgContainer.setAttribute('data-id', meal.id);
 
-    const img = document.createElement('img');
-    img.setAttribute('src', meal.image); // Correct attribute for setting image source
-    img.setAttribute('alt', meal.title); // Optional: 'alt' attribute for accessibility
-    imgContainer.appendChild(img); // Append the image to the container
+    const img = document.createElement("img");
+    img.setAttribute("src", meal.image);
+    img.setAttribute("alt", meal.title);
+    imgContainer.appendChild(img);
 
-    mainContainer.appendChild(imgContainer); // Append the container to the main container
+    mainContainer.appendChild(imgContainer);
+   
   });
 };
-   
+
+const handleUserClick = async (e) => {
+  let targetElement = e.target;
+
+  // Debugging: Log the clicked element
+  console.log("Clicked element:", targetElement);
+
+  // Navigate to the parent element if the clicked element is an image
+  if (targetElement.tagName === 'IMG') {
+    targetElement = targetElement.parentElement;
+  }
+
+  const mealId = targetElement.getAttribute('data-id');
+
+  // Debugging: Log the meal ID
+  console.log("Meal ID:", mealId);
+
+  if (mealId) {
+    try {
+      const mealInfoUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+      const mealInfo = await fetcher(mealInfoUrl);
+      console.log('here',mealInfo); 
+    } catch (error) {
+      console.error("Error fetching meal info:", error);
+    }
+  }
+}
 
 const main = async () => {
   // form
 
   const form = document.querySelector("#meal-form");
-  form.addEventListener("submit", (event) => handleSubmit(event, fetchAndRenderMealsByIngredient));
+  form.addEventListener("submit", (event) =>
+    handleSubmit(event, fetchAndRenderMealsByIngredient)
+  );
 
+const imgDelegation = document.querySelector('#meal-images-container');
+imgDelegation.addEventListener('click',handleUserClick)
 };
 main();
