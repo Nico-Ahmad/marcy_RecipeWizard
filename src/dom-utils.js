@@ -1,4 +1,5 @@
-export const handleSubmit = (e) => {
+
+export const handleSubmit = async (e, callback) => {
   e.preventDefault();
 
   // get form data
@@ -9,5 +10,5 @@ export const handleSubmit = (e) => {
   console.log("here is your data:", formObj.ingredientUserInput);
 
   form.reset();
-  return userIngredients;
+  await callback(userIngredients);
 };

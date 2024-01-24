@@ -45,47 +45,49 @@ export const fetcher = async (url) => {
   }
 };
 
+export const fetchAndRenderMealsByIngredient = async (ingredient) => {
+  const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
+  const mealByIng = await fetcher(mealByIngUrl);
+
+  if (mealByIng) {
+    renderMeals(mealByIng);
+
+    for (const meal of mealByIng) {
+      const mealInfoUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.id}`;
+      const mealInfo = await fetcher(mealInfoUrl);
+      // Process mealInfo as needed
+    }
+  } else {
+    console.log('no meals')
+  }
+};
+
 
 const renderMeals = (meals) => {
-  meals.forEach((meal) => {
-    const imgContainer = document.createElement('div')
-    imgContainer.classList.add('each-image')
-    const img = document.createElement('img')
-    const imgId = meal.id
-    img.setAttribute('img',imgId)
-    img.src = meal.image
-    imgContainer.append(img)
-    const mainContainer = document.querySelector('#meal-images-container')
-   
-    mainContainer.append(imgContainer)
-    console.log(mainContainer)
-   
-    
+  const mainContainer = document.querySelector('#meal-images-container');
 
-  })
-}
+  // Clear the container once before the loop
+  mainContainer.innerHTML = '';
+
+  meals.forEach((meal) => {
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('each-image');
+
+    const img = document.createElement('img');
+    img.setAttribute('src', meal.image); // Correct attribute for setting image source
+    img.setAttribute('alt', meal.title); // Optional: 'alt' attribute for accessibility
+    imgContainer.appendChild(img); // Append the image to the container
+
+    mainContainer.appendChild(imgContainer); // Append the container to the main container
+  });
+};
+   
+
 const main = async () => {
   // form
 
   const form = document.querySelector("#meal-form");
-  form.addEventListener("submit", handleSubmit);
-  const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`;
-  // returns img and id
+  form.addEventListener("submit", (event) => handleSubmit(event, fetchAndRenderMealsByIngredient));
 
-  // returns all info
-
-  // mealById === www.themealdb.com/api/json/v1/1/lookup.php?i=52772
-  // mealBy Ingredient === www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
-  const mealByIng = await fetcher(mealByIngUrl);
-  renderMeals(mealByIng)
-  //
-  //console.log("all meals", mealByIng);
-  for (const meal of mealByIng) {
-    const mealInfoUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.id}`;
-   // console.log("Meal by Ingredient:", meal);
-    const mealInfo = await fetcher(mealInfoUrl);
-   // console.log("Meal Information:", mealInfo);
-  }
-  
 };
 main();
