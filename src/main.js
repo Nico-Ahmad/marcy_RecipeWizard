@@ -30,7 +30,6 @@ const fetchTest = async () => {
   }
 }
 
-const fetch = ()
 
 const main = () => {
   fetchTest()
