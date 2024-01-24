@@ -1,38 +1,71 @@
-const fetchMealsByIngredient = async (userInput) => {
+import { handleSubmit } from "./dom-utils";
+
+export const fetcher = async (url) => {
   try {
-    const response = await fetch(
-      `https://https://www.themealdb.com/api/json/v1/1/filter.php?i=${userInput}`
-    );
-    if (!response.ok) throw Error('fetch failed Status:', response.status)
-
-    const meals = await response.json();
-    console.log('heres the data', meals)
-    return meals
-  } catch (error) {
-    console.error('caught error', error)
-  } 
-};
-
-// const fetchMealDetails
-
-
-const fetchTest = async () => {
-  try {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772`);
-    if (!response.ok) throw Error('fetch failed Status:', response.status)
+    const response = await fetch(url);
+    if (!response.ok)
+      throw new Error("Fetch failed with status:", response.status);
 
     const data = await response.json();
+    console.log("the meal data", data);
 
-    console.log(data)
+    if (data.meals && data.meals.length > 0) {
+      const mealsInfo = data.meals.map((theMeal) => {
+        let mealInfo = {};
 
-  } catch {
-    console.error('caught error', error)
+        if (theMeal.strMealThumb && theMeal.idMeal) {
+          mealInfo.image = theMeal.strMealThumb;
+          mealInfo.id = theMeal.idMeal;
+        }
+
+        if (
+          theMeal.strMeal &&
+          theMeal.strArea &&
+          theMeal.strInstructions &&
+          theMeal.strYoutube &&
+          theMeal.ingredients1
+        ) {
+          mealInfo.title = theMeal.strMeal;
+          mealInfo.origin = theMeal.strArea;
+          mealInfo.instructions = theMeal.strInstructions;
+          mealInfo.youtubeUrl = theMeal.strYoutube;
+          
+        }
+
+        return mealInfo;
+      });
+
+      return mealsInfo;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("caught error:", error);
+    return null;
   }
-}
+};
 
-const fetch = ()
+const main = async () => {
+  // form
 
-const main = () => {
-  fetchTest()
+  const form = document.querySelector("#meal-form");
+  form.addEventListener("submit", handleSubmit);
+  const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`;
+  // returns img and id
+
+  // returns all info
+
+  // mealById === www.themealdb.com/api/json/v1/1/lookup.php?i=52772
+  // mealBy Ingredient === www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
+  const mealByIng = await fetcher(mealByIngUrl);
+  //
+  //console.log("all meals", mealByIng);
+  for (const meal of mealByIng) {
+    const mealInfoUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.id}`;
+    console.log("Meal by Ingredient:", meal);
+    const mealInfo = await fetcher(mealInfoUrl);
+    console.log("Meal Information:", mealInfo);
+  }
+  
 };
 main();
