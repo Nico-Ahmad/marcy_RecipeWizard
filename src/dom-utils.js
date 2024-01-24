@@ -1,6 +1,5 @@
-// temp
 export const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
   // get form data
   const form = e.target;
@@ -9,7 +8,6 @@ export const handleSubmit = (e) => {
 
   console.log("here is your data:", formObj.ingredientUserInput);
 
- 
   form.reset();
-
-}
+  return formObj;
+};
