@@ -23,20 +23,27 @@ h1,h2 {
     padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-    width: 300px; /* Adjust width as needed */
+    z-index: 1000; 
+    width: 500px; /* Adjust width as needed */
     max-height: 80vh;
     overflow-y: auto; /* Enables scrolling if the content is too long */
     box-sizing: border-box;
     border-radius: 10px;
   }
-  
-  #extra-meal-info img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 10px;
+
+  #popUpTextContent {
+    
   }
+  #popUpImage {
+    display: flex;
+  }
+  #popUpImage img {
+    
+  }
+
+  
+  
+ 
   
   #extra-meal-info h2 {
     margin-top: 0;
@@ -52,3 +59,4 @@ h1,h2 {
   }
   
   /* Add more styles as needed */
+

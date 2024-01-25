@@ -16,7 +16,7 @@ export const renderMeals = (meals) => {
     });
   };
 
-  export const renderMealInfo = (mealDetails) => {
+ export const renderMealInfo = (mealDetails) => {
     const extraMealInfoDiv = document.querySelector("#extra-meal-info");
     extraMealInfoDiv.innerHTML = '';
   
@@ -92,7 +92,7 @@ export const renderMeals = (meals) => {
       extraMealInfoDiv.appendChild(imageContainer);
     });
   
-    extraMealInfoDiv.style.display = 'block';
+    extraMealInfoDiv.style.display = 'flex';
   
     extraMealInfoDiv.addEventListener('click', (e) => {
       if (e.currentTarget === extraMealInfoDiv) {
@@ -103,7 +103,7 @@ export const renderMeals = (meals) => {
   
   export const renderWarning = () => {
     const container = document.querySelector("#meal-images-container"); // or any suitable container
-    container.innerHTML = ''; // Clear previous content
+    container.innerHTML = '';
   
     const warningMessage = document.createElement("p");
     warningMessage.textContent = "No meals found. Please try a different search.";
