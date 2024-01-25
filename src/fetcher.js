@@ -1,3 +1,5 @@
+import { renderWarning } from "./render";
+
 export const fetcher = async (url) => {
     try {
       const response = await fetch(url);
@@ -31,7 +33,8 @@ export const fetcher = async (url) => {
           return mealInfo;
         });
       } else {
-        return null;
+        renderWarning();
+        
       }
     } catch (error) {
       console.error("caught error:", error);

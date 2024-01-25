@@ -12,6 +12,7 @@ export const fetchAndRenderMealsByIngredient = async (ingredient) => {
     for (const meal of mealByIng) {
       const mealInfoUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.id}`;
       const mealInfo = await fetcher(mealInfoUrl);
+      console.log(mealInfo);
     }
   } else {
     console.log("no meals");
@@ -205,7 +206,7 @@ const handleUserClick = async (e) => {
 
 */
 const main = async () => {
-  fetcher()
+fetchAndRenderMealsByIngredient('chicken breast')
   const form = document.querySelector("#meal-form");
   form.addEventListener("submit", (event) =>
     handleSubmit(event, fetchAndRenderMealsByIngredient)
