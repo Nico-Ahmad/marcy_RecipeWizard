@@ -205,6 +205,7 @@ const handleUserClick = async (e) => {
 
 */
 const main = async () => {
+  fetcher()
   const form = document.querySelector("#meal-form");
   form.addEventListener("submit", (event) =>
     handleSubmit(event, fetchAndRenderMealsByIngredient)
