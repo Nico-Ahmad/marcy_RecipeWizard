@@ -112,3 +112,4 @@ export const renderMeals = (meals) => {
   
     container.appendChild(warningMessage);
   };
+
