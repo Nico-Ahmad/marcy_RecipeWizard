@@ -10,6 +10,7 @@ export const renderMeals = (meals) => {
       const img = document.createElement("img");
       img.setAttribute("src", meal.image);
       img.setAttribute("alt", meal.title);
+      img.width = 400
       imgContainer.appendChild(img);
   
       mainContainer.appendChild(imgContainer);
@@ -80,7 +81,7 @@ export const renderMeals = (meals) => {
       // Div for Image
       const imageContainer = document.createElement('div');
       imageContainer.id = 'popUpImage';
-  
+
       if (detail.image) {
         const image = document.createElement('img');
         image.src = detail.image;
