@@ -1,7 +1,7 @@
+import "./style.css"
 import { handleSubmit } from "./dom-utils";
 import { fetcher } from "./fetcher";
 import { renderMeals, renderMealInfo } from "./render";
-import {  }
 
 console.log("Hello world");
 

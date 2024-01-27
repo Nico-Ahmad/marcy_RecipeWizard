@@ -8,22 +8,27 @@
     <title>Recipe Wizard</title>
   </head>
 
+  <div class="w3-sidebar w3-bar-block w3-collapse" style="width:200px;right:0" id="mySidebar">
+    
+  </div>
   <body>
     <header>
       <h1>Recipe Wizard</h1>
     </header>
+
     <main id="app">
       <!-- DA FORM -->
-      <form id="meal-form" aria-label="search meals by ingredient">
-        <h2>Type in an ingredient</h2>
+      <form id="meal-form" aria-label="Search for Recipes based on key ingredients">
+        <h3>Search for Meal Recipes!</h3>
         <label for="ingredient-user-input"></label>
-        <input type="text" id="ingredient-user-input" name="ingredientUserInput" placeholder=""/>
+        <input type="text" id="ingredient-user-input" name="ingredientUserInput" placeholder="Enter an Ingredient"/>
         <button class="Submit Button" type="submit">Search</button>
       </form>
 
       <!-- DA SEARCHED V: THE PHANTOM PAIN -->
-      <div id="user searched">
-        <h2 class=""> </h2>
+      <div id="user-searched">
+        <h3 class="seaIngName"></h3>
+        <p class="seaIngrPic"></p>
       </div>
 
       <!-- DA INFORMATIONE CARD -->
@@ -33,8 +38,13 @@
       
       <!-- DA SEARCH RESULTS  -->
       <div id="meal-images-container"><!---Meal images/buttons Dynamic--></div>
-
     </main>
+
+    <footer>
+      <p>Nico & Ahmad</p>
+      <a href="https://github.com/Nico-Ahmad/marcy_RecipeWizard">GitHub Repo</a>
+      <a href="https://www.themealdb.com/api.php">TheMealDB</a>
+    </footer>
   </body>
 </main>
 </html>

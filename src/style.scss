@@ -1,21 +1,45 @@
-$blue_1: #007bff;
+$blue_1: rgba(0, 153, 255, 0.484);
 $background-color_1: rgba(0, 0, 0, 0.5);
 $background-color_2: white;
+$textColor1: gray;
+
+
 
 /* Add more styles as needed */
 * {
 	padding: 0;
 	margin: 0;
 }
-h1 {
-	text-align: center;
+
+
+header {
+	display: flex;
+	background-color: $blue_1;
+	padding: 3.6rem;
+	justify-content: center;
+	h1 {
+		display:flex;
+	}
+
 }
+
 h2 {
 	text-align: center;
 }
-#ingredient-user-input {
-	text-align: center;
+
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 8rem;
+	h3 {
+		display:flex;
+	}
 }
+
+// #ingredient-user-input {
+// 	text-align: center;
+// }
+
 #meal-images-container {
 	display: flex;
 	flex-wrap: wrap;

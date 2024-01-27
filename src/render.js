@@ -1,3 +1,8 @@
+
+
+
+
+
 export const renderMeals = (meals) => {
     const mainContainer = document.querySelector("#meal-images-container");
     mainContainer.innerHTML = "";
