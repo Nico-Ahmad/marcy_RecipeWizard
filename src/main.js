@@ -1,8 +1,9 @@
 import { handleSubmit } from "./dom-utils";
 import { fetcher } from "./fetcher";
 import { renderMeals, renderMealInfo } from "./render";
+import {  }
 
-console.log("Hello world")
+console.log("Hello world");
 
 export const fetchAndRenderMealsByIngredient = async (ingredient) => {
   const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
