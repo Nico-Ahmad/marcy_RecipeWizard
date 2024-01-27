@@ -10,7 +10,7 @@ export const renderMeals = (meals) => {
       const img = document.createElement("img");
       img.setAttribute("src", meal.image);
       img.setAttribute("alt", meal.title);
-      img.width = 400
+      img.width = 400;
       imgContainer.appendChild(img);
   
       mainContainer.appendChild(imgContainer);
@@ -92,12 +92,14 @@ export const renderMeals = (meals) => {
       // Append Image Container
       extraMealInfoDiv.appendChild(imageContainer);
     });
-  
+    const modalWrap = document.querySelector('#modal-wrapper')
     extraMealInfoDiv.style.display = 'flex';
-  
+    modalWrap.style.display = 'block'
     extraMealInfoDiv.addEventListener('click', (e) => {
+        
       if (e.currentTarget === extraMealInfoDiv) {
         extraMealInfoDiv.style.display = 'none';
+        modalWrap.style.display = 'none'
       }
     });
   };
