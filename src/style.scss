@@ -33,7 +33,8 @@ header {
 		background-color: transparent;
 		text-align: center;
 		display:flex;
-		font-weight: 700;
+		font-weight: bolder;
+		font-style: italic;
 		font-size: 400%;
 		color: $textYellow;
 		-webkit-text-stroke: 2px $textColor1;
@@ -96,9 +97,27 @@ form {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: stretch;
+	// flex-direction: column;
 	justify-content: center;
 	margin-left: 10em;
 	margin-right: 10em;
+	#searchErrorState {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		p{
+			text-align: center;
+			
+		}
+		img {
+			max-width: 50rem;
+		}
+		#wizardTalk {
+			color: gray;
+			font-style: italic;
+			font-size: medium;
+		}
+	}
 }
 .each-image {
 	img {
@@ -110,6 +129,14 @@ form {
 		height: auto;
 	}
 }
+
+// meal card
+
+// @media only screen and (max-device-width: 1366px) {
+// 	.parallax {
+// 	  background-attachment: scroll;
+// 	}
+//   }
 #modal-wrapper {
 	display: none;
 	position: fixed;
@@ -120,6 +147,7 @@ form {
 	background-color: $background-color_1;
 
 }
+
 
 
 #extra-meal-info {
@@ -155,14 +183,25 @@ form {
 	}
 	p {
 		margin-left:1rem;
+		margin-bottom: 1rem;
 	}
-	a {
-		margin-left:1rem;
+	iframe {
+		display:flex;
+		margin-top: 0;
+		align-items: center;
 		color: $textcolor3;
 		text-decoration: none;
 		&:hover {
 			text-decoration: underline;
 		}
+	}
+	img {
+		width: 10em;
+		margin: 2rem;
+		border: 2px solid $background-color_1;
+		border-radius: 35px 35px 35px 35px;
+		
+		height: auto;
 	}
 }
 #popUpTextContent {

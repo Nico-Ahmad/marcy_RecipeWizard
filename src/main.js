@@ -1,13 +1,15 @@
 import "./style.css"
 import { handleSubmit } from "./utils/dom-utils";
 import { fetcher } from "./utils/fetcher";
-import { renderMeals, renderMealInfo } from "./utils/render";
+import { renderMeals, renderMealInfo, renderIngredientSearched } from "./utils/render";
 
 export const fetchAndRenderMealsByIngredient = async (ingredient) => {
   const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
   const mealByIng = await fetcher(mealByIngUrl);
 
+
   if (mealByIng) {
+    renderIngredientSearched(ingredient)
     renderMeals(mealByIng);
 
     for (const meal of mealByIng) {

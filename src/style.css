@@ -23,7 +23,8 @@ header h1 {
   background-color: transparent;
   text-align: center;
   display: flex;
-  font-weight: 700;
+  font-weight: bolder;
+  font-style: italic;
   font-size: 400%;
   color: rgb(255, 238, 0);
   -webkit-text-stroke: 2px rgb(0, 119, 255);
@@ -83,6 +84,22 @@ form #ingredient-user-input {
   margin-left: 10em;
   margin-right: 10em;
 }
+#meal-images-container #searchErrorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#meal-images-container #searchErrorState p {
+  text-align: center;
+}
+#meal-images-container #searchErrorState img {
+  max-width: 50rem;
+}
+#meal-images-container #searchErrorState #wizardTalk {
+  color: gray;
+  font-style: italic;
+  font-size: medium;
+}
 
 .each-image img {
   width: 10em;
@@ -137,14 +154,24 @@ form #ingredient-user-input {
 }
 #extra-meal-info p {
   margin-left: 1rem;
+  margin-bottom: 1rem;
 }
-#extra-meal-info a {
-  margin-left: 1rem;
+#extra-meal-info iframe {
+  display: flex;
+  margin-top: 0;
+  align-items: center;
   color: rgb(63, 223, 235);
   text-decoration: none;
 }
-#extra-meal-info a:hover {
+#extra-meal-info iframe:hover {
   text-decoration: underline;
+}
+#extra-meal-info img {
+  width: 10em;
+  margin: 2rem;
+  border: 2px solid rgba(4, 0, 59, 0.5);
+  border-radius: 35px 35px 35px 35px;
+  height: auto;
 }
 
 #popUpTextContent {

@@ -1,5 +1,26 @@
 export const renderIngredientSearched = (ingredient) => {
-  const mainContainer = document.querySelector
+  const mainContainer = document.querySelector("#user-searched");
+  mainContainer.innerHTML = "";
+
+  const resultDiv = document.createElement("div");
+  resultDiv.id = ("div-text")
+  const resultDiv2 = document.createElement("div");
+  resultDiv2.id = ("div-ingPicAndName")
+
+  const h4 = document.createElement("h4");
+  h4.textContent = ("Searching for Recipes with:")
+  const img = document.createElement("img");
+  img.src = (`https://www.themealdb.com/images/ingredients/${ingredient}.png`)
+  const p = document.createElement("p");
+  p.textContent = (ingredient.toString().toUpperCase())
+
+
+  resultDiv.append(h4)
+  resultDiv2.append(img)
+  resultDiv2.append(p)
+
+  mainContainer.append(resultDiv)
+  mainContainer.append(resultDiv2)
 }
 
 
@@ -128,12 +149,25 @@ export const renderMeals = (meals) => {
   export const renderWarning = () => {
     const container = document.querySelector("#meal-images-container"); // or any suitable container
     container.innerHTML = '';
+
+    const divider = document.createElement('div')
+    divider.id = "searchErrorState"
   
     const warningMessage = document.createElement("p");
     warningMessage.textContent = "No meals found. Please try a different search.";
     warningMessage.style.color = 'red'; // Styling for visibility
     // Additional styling can be added here
+
+    const wizardWalk = document.createElement("img");
+    wizardWalk.src = ("https://github.com/Nico-Ahmad/marcy_RecipeWizard/blob/nico/src/assets/images/wizards/walking.gif?raw=true")
+    const wizardTalk = document.createElement("p");
+    wizardTalk.textContent = `("Where are those recipes?")`
+    wizardTalk.id = "wizardTalk"
   
-    container.appendChild(warningMessage);
+    divider.appendChild(warningMessage);
+    divider.appendChild(wizardWalk);
+    divider.appendChild(wizardTalk);
+    container.append(divider)
+
   };
 
