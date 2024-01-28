@@ -48,8 +48,29 @@ const handleUserClick = async (e) => {
   }
 }
 
+
+const imFeelingLucky = () => {
+  const searches = [
+    "chicken breast",
+    "pepper",
+    "lemon",
+    "kale",
+    "orange",
+    "lamb",
+    "broccoli",
+    "strawberries",
+    "bread",
+    "potato",
+    "cheese",
+    "water",
+    "rice",
+  ] ;
+  const ranIdx = Math.floor(Math.random()*searches.length);
+  return searches[ranIdx];
+}
+
 const main = async () => {
-fetchAndRenderMealsByIngredient('chicken breast')
+fetchAndRenderMealsByIngredient(imFeelingLucky())
   const form = document.querySelector("#meal-form");
   form.addEventListener("submit", (event) =>
     handleSubmit(event, fetchAndRenderMealsByIngredient)
@@ -58,7 +79,7 @@ fetchAndRenderMealsByIngredient('chicken breast')
   const imgDelegation = document.querySelector('#meal-images-container');
   imgDelegation.addEventListener('click', handleUserClick);
 
-  
+
 };
 
 main();
