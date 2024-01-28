@@ -1,45 +1,92 @@
-$blue_1: rgba(0, 153, 255, 0.484);
-$background-color_1: rgba(0, 0, 0, 0.5);
-$background-color_2: white;
-$textColor1: gray;
+$background-color_0: rgb(162, 244, 255);
+$background-color_1: rgba(4, 0, 59, 0.5);
+$background-color_2: rgb(255, 253, 236);
+$textColor1: rgb(0, 119, 255);
+$textcolor2: rgb(0, 20, 65);
+$textcolor3: rgb(63, 223, 235);
 
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,500;1,400;1,700&display=swap');
 
 /* Add more styles as needed */
 * {
 	padding: 0;
 	margin: 0;
+	font-family: 'IBM Plex Mono', monospace;
+	background-color: $background-color_2;
 }
-
 
 header {
 	display: flex;
-	background-color: $blue_1;
+	background-color: $background-color_0;
+	// margin-top: 3rem;
 	padding: 3.6rem;
+	padding-top: 5rem;
 	justify-content: center;
+	border-bottom: 1rem solid $textColor1;
+
 	h1 {
+		background-color: $background-color_0;
 		display:flex;
+		font-weight: 700;
+		font-size: 400%;
+		color: $textColor1;
+		-webkit-text-fill-color: rgb(255, 238, 0);
+		-webkit-text-stroke-color: $textColor1;
+		-webkit-text-stroke-width: 15%;
 	}
-
-}
-
-h2 {
-	text-align: center;
 }
 
 form {
 	display: flex;
 	flex-direction: column;
-	padding: 8rem;
-	h3 {
+	align-items: center;
+	padding: 3rem;
+	h2 {
 		display:flex;
+		padding-bottom: 0.5rem;
+	}
+	label {
+		padding-bottom: 0.5rem;
+
+	}
+	input {
+		max-width: 250px;
+		padding: 10px 5px;
+		float: left;
+		color: black;
+		border: 10;
+		padding-bottom: 0.5rem;
+		// background: transparent;
+		border-radius: 3px 0 0 3px;
+	}
+	p {
+		color: gray;
+		font-size: 80%;
+		text-align: center;
+		padding-bottom: 0.5rem;
+	}
+	button {
+		min-width: 50px;
+		position: relative;
+		float: right;
+		border: 10;
+		padding: 0;
+		height: 40px;
+		width: 120px;
+		color: $textColor1;
+		background: transparent;
+		border-left: 1px solid #fff;
+		border-radius: 0 3px 3px 0;
+	}
+	#ingredient-user-input {
+		text-align: left;
 	}
 }
 
-// #ingredient-user-input {
-// 	text-align: center;
-// }
 
+
+
+// the meal buttons
 #meal-images-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -64,14 +111,14 @@ form {
 	background-color: $background-color_1;
 }
 #extra-meal-info {
-	display: none;
+	display: flex;
 	position: fixed;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	background-color: $background-color_2;
 	padding: 20px;
-	border: 1px solid #ddd;
+	border: 5px solid $background-color_0;
 	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 	z-index: 1000;
 	max-height: 80vh;
@@ -82,7 +129,7 @@ form {
 		margin-top: 0;
 	}
 	a {
-		color: $blue_1;
+		color: $textcolor3;
 		text-decoration: none;
 		&:hover {
 			text-decoration: underline;
@@ -91,13 +138,14 @@ form {
 }
 #popUpTextContent {
 	overflow: scroll;
-	width: 15rem;
-	height: 15rem;
-	padding-right: 4rem;
+	width: 20rem;
+	height: 38rem;
+	padding-right: 10rem;
 }
 #popUpImage {
 	display: flex;
-	justify-content: end;
+	align-items: center;
+	justify-content: flex-end;
 	img {
 		width: 15rem;
 		height: 15rem;

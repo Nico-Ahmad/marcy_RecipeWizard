@@ -9,7 +9,7 @@
   </head>
 
   <div class="w3-sidebar w3-bar-block w3-collapse" style="width:200px;right:0" id="mySidebar">
-    
+
   </div>
   <body>
     <header>
@@ -19,10 +19,13 @@
     <main id="app">
       <!-- DA FORM -->
       <form id="meal-form" aria-label="Search for Recipes based on key ingredients">
-        <h3>Search for Meal Recipes!</h3>
-        <label for="ingredient-user-input"></label>
-        <input type="text" id="ingredient-user-input" name="ingredientUserInput" placeholder="Enter an Ingredient"/>
-        <button class="Submit Button" type="submit">Search</button>
+        <h2>Search for Meal Recipes!</h2>
+        <label for="ingredient-user-input">Enter an ingredient!</label>
+        <div>
+          <p>(Leave Blank for all Recipes)</p>
+          <input type="text" id="ingredient-user-input" name="ingredientUserInput" placeholder="Enter an Ingredient"/>
+          <button class="Submit Button" type="submit">Search</button>
+        </div>
       </form>
 
       <!-- DA SEARCHED V: THE PHANTOM PAIN -->

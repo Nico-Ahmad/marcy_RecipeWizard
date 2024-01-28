@@ -3,8 +3,6 @@ import { handleSubmit } from "./utils/dom-utils";
 import { fetcher } from "./utils/fetcher";
 import { renderMeals, renderMealInfo } from "./utils/render";
 
-console.log("Hello world");
-
 export const fetchAndRenderMealsByIngredient = async (ingredient) => {
   const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
   const mealByIng = await fetcher(mealByIngUrl);
@@ -49,10 +47,6 @@ const handleUserClick = async (e) => {
     }
   }
 }
-
-
-
-console.log("hello world")
 
 const main = async () => {
 fetchAndRenderMealsByIngredient('chicken breast')
