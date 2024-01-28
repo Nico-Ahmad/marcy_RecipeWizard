@@ -1,7 +1,7 @@
 import "./style.css"
 import { handleSubmit } from "./utils/dom-utils";
 import { fetcher } from "./utils/fetcher";
-import { renderMeals, renderMealInfo, renderIngredientSearched } from "./utils/render";
+import { renderMeals, renderMealInfo, renderIngredientSearched, renderNoIngredient } from "./utils/render";
 
 export const fetchAndRenderMealsByIngredient = async (ingredient) => {
   const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
@@ -9,7 +9,7 @@ export const fetchAndRenderMealsByIngredient = async (ingredient) => {
 
 
   if (mealByIng) {
-    renderIngredientSearched(ingredient)
+    renderIngredientSearched(ingredient);
     renderMeals(mealByIng);
 
     for (const meal of mealByIng) {
@@ -19,6 +19,7 @@ export const fetchAndRenderMealsByIngredient = async (ingredient) => {
     }
   } else {
     console.log("no meals");
+    renderNoIngredient()
   }
 };
 

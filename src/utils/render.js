@@ -5,22 +5,27 @@ export const renderIngredientSearched = (ingredient) => {
   const resultDiv = document.createElement("div");
   resultDiv.id = ("div-text")
   const resultDiv2 = document.createElement("div");
-  resultDiv2.id = ("div-ingPicAndName")
+  resultDiv2.id = ("div-imgPicAndName")
 
-  const h4 = document.createElement("h4");
-  h4.textContent = ("Searching for Recipes with:")
+  const h3 = document.createElement("h3");
+  h3.textContent = ("Searching for Recipes with:")
   const img = document.createElement("img");
   img.src = (`https://www.themealdb.com/images/ingredients/${ingredient}.png`)
   const p = document.createElement("p");
   p.textContent = (ingredient.toString().toUpperCase())
 
 
-  resultDiv.append(h4)
+  resultDiv.append(h3)
   resultDiv2.append(img)
   resultDiv2.append(p)
 
   mainContainer.append(resultDiv)
   mainContainer.append(resultDiv2)
+}
+
+export const renderNoIngredient = () => {
+  const mainContainer = document.querySelector("#user-searched");
+  mainContainer.innerHTML = "";
 }
 
 

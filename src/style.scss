@@ -89,7 +89,32 @@ form {
 	}
 }
 
+// da ingredient searched
 
+#user-searched {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	#div-text {
+		justify-content: center;
+		h3 {
+			// max-width: 4rem;
+			font-style: italic;
+		}
+	}
+	#div-imgPicAndName {
+		justify-content: center;
+		margin-left: 2rem;
+		p {
+			text-align: center;
+		}
+		img {
+			max-height: 5em;
+			border: 2px solid $background-color_1;
+			background-color: white;
+		}
+	}
+}
 
 
 // the meal buttons
@@ -223,24 +248,27 @@ form {
 .bottSpacer {
 	padding:2.5rem;
 }
+
 footer {
-	display: flex;
-	justify-content: space-around;
-	background-color: $textcolor2;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 40px;
-    width: 100%;
-    overflow: hidden;
-	p {
-		background: transparent;
-		color: $background-color_2;
-		font-weight: bold;
-	}
-	a {
-		background: transparent;
-		color: $background-color_2;
-		font-weight: bolder;
+	div {
+		display: flex;
+		justify-content: space-around;
+		background-color: $textcolor2;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		height: 2rem;
+		width: 100%;
+		overflow: hidden;
+		p {
+			background: transparent;
+			color: $background-color_2;
+			font-weight: bold;
+		}
+		a {
+			background: transparent;
+			color: $background-color_2;
+			font-weight: bolder;
+		}
 	}
 }

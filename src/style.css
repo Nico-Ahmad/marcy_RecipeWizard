@@ -76,6 +76,30 @@ form #ingredient-user-input {
   text-align: left;
 }
 
+#user-searched {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#user-searched #div-text {
+  justify-content: center;
+}
+#user-searched #div-text h3 {
+  font-style: italic;
+}
+#user-searched #div-imgPicAndName {
+  justify-content: center;
+  margin-left: 2rem;
+}
+#user-searched #div-imgPicAndName p {
+  text-align: center;
+}
+#user-searched #div-imgPicAndName img {
+  max-height: 5em;
+  border: 2px solid rgba(4, 0, 59, 0.5);
+  background-color: white;
+}
+
 #meal-images-container {
   display: flex;
   flex-wrap: wrap;
@@ -195,23 +219,23 @@ form #ingredient-user-input {
   padding: 2.5rem;
 }
 
-footer {
+footer div {
   display: flex;
   justify-content: space-around;
   background-color: rgb(0, 4, 58);
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 40px;
+  height: 2rem;
   width: 100%;
   overflow: hidden;
 }
-footer p {
+footer div p {
   background: transparent;
   color: rgb(255, 253, 236);
   font-weight: bold;
 }
-footer a {
+footer div a {
   background: transparent;
   color: rgb(255, 253, 236);
   font-weight: bolder;
