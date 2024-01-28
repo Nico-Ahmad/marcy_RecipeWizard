@@ -57,6 +57,8 @@ fetchAndRenderMealsByIngredient('chicken breast')
 
   const imgDelegation = document.querySelector('#meal-images-container');
   imgDelegation.addEventListener('click', handleUserClick);
+
+  
 };
 
 main();

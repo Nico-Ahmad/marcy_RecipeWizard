@@ -1,3 +1,8 @@
+export const renderIngredientSearched = (ingredient) => {
+  const mainContainer = document.querySelector
+}
+
+
 
 export const renderMeals = (meals) => {
     const mainContainer = document.querySelector("#meal-images-container");
@@ -69,11 +74,26 @@ export const renderMeals = (meals) => {
   
       // YouTube URL
       if (detail.youtubeUrl) {
-        const youtubeLink = document.createElement('a');
-        youtubeLink.href = detail.youtubeUrl;
-        youtubeLink.textContent = 'Watch on YouTube';
-        youtubeLink.target = '_blank';
-        textContentContainer.appendChild(youtubeLink);
+        // const youtubeLink = document.createElement('a');
+        // youtubeLink.href = detail.youtubeUrl;
+        // youtubeLink.textContent = 'Watch on YouTube';
+        // youtubeLink.target = '_blank';
+        // textContentContainer.appendChild(youtubeLink);
+        console.log(detail.youtubeUrl)
+
+        const bananaSplit = detail.youtubeUrl.split("=")
+        const ytVideoID = bananaSplit[bananaSplit.length-1]
+        const ytEmbedUrl = `https://www.youtube.com/embed/${ytVideoID}`
+        console.log(ytEmbedUrl)
+
+        const ytEmbed = document.createElement('iframe');
+        ytEmbed.width = "300";
+        ytEmbed.height = "160";
+        ytEmbed.src = ytEmbedUrl;
+        ytEmbed.allow = "fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        // ytEmbed.allowFullscreen;
+        textContentContainer.appendChild(ytEmbed)
+
       }
   
       // Append Text Content Container

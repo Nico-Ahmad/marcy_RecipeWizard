@@ -1,9 +1,10 @@
-$background-color_0: rgb(162, 244, 255);
+$background-color_0: rgba(85, 235, 255, 0.411);
 $background-color_1: rgba(4, 0, 59, 0.5);
 $background-color_2: rgb(255, 253, 236);
 $textColor1: rgb(0, 119, 255);
-$textcolor2: rgb(0, 20, 65);
+$textcolor2: rgb(0, 4, 58);
 $textcolor3: rgb(63, 223, 235);
+$textYellow: rgb(255, 238, 0);
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,500;1,400;1,700&display=swap');
 
@@ -13,6 +14,10 @@ $textcolor3: rgb(63, 223, 235);
 	margin: 0;
 	font-family: 'IBM Plex Mono', monospace;
 	background-color: $background-color_2;
+	// min-height: 100%;
+}
+html {
+	min-height: auto;
 }
 
 header {
@@ -25,14 +30,13 @@ header {
 	border-bottom: 1rem solid $textColor1;
 
 	h1 {
-		background-color: $background-color_0;
+		background-color: transparent;
+		text-align: center;
 		display:flex;
 		font-weight: 700;
 		font-size: 400%;
-		color: $textColor1;
-		-webkit-text-fill-color: rgb(255, 238, 0);
-		-webkit-text-stroke-color: $textColor1;
-		-webkit-text-stroke-width: 15%;
+		color: $textYellow;
+		-webkit-text-stroke: 2px $textColor1;
 	}
 }
 
@@ -53,11 +57,11 @@ form {
 		max-width: 250px;
 		padding: 10px 5px;
 		float: left;
-		color: black;
+		color: rgb(112, 112, 112);
 		border: 10;
 		padding-bottom: 0.5rem;
 		// background: transparent;
-		border-radius: 3px 0 0 3px;
+		border-radius: 1em 0 0 1em;
 	}
 	p {
 		color: gray;
@@ -66,7 +70,8 @@ form {
 		padding-bottom: 0.5rem;
 	}
 	button {
-		min-width: 50px;
+		min-width: 60px;
+		max-width: 90px;
 		position: relative;
 		float: right;
 		border: 10;
@@ -76,7 +81,7 @@ form {
 		color: $textColor1;
 		background: transparent;
 		border-left: 1px solid #fff;
-		border-radius: 0 3px 3px 0;
+		border-radius: 0 1em 1em 0;
 	}
 	#ingredient-user-input {
 		text-align: left;
@@ -92,12 +97,16 @@ form {
 	flex-wrap: wrap;
 	align-items: stretch;
 	justify-content: center;
+	margin-left: 10em;
+	margin-right: 10em;
 }
 .each-image {
 	img {
-		width: 400;
-		margin: 5px;
-		border: 3px solid black;
+		width: 10em;
+		margin: 2rem;
+		border: 2px solid $background-color_1;
+		border-radius: 35px 35px 35px 35px;
+		
 		height: auto;
 	}
 }
@@ -109,7 +118,10 @@ form {
 	width: 100%;
 	height: 100%;
 	background-color: $background-color_1;
+
 }
+
+
 #extra-meal-info {
 	display: flex;
 	position: fixed;
@@ -125,10 +137,27 @@ form {
 	box-sizing: border-box;
 	border-radius: 10px;
 	width: fit-content;
+	color: $textcolor2;
 	h2 {
 		margin-top: 0;
+		padding-bottom: 2rem;
+		font-weight: bolder;
+		font-size: xx-large;
+	}
+	h3 {
+		margin-top: 0;
+		padding-top: 2rem;
+		font-weight: bolder;
+		font-style: italic;
+	}
+	li {
+		margin-left:1rem;
+	}
+	p {
+		margin-left:1rem;
 	}
 	a {
+		margin-left:1rem;
 		color: $textcolor3;
 		text-decoration: none;
 		&:hover {
@@ -140,14 +169,39 @@ form {
 	overflow: scroll;
 	width: 20rem;
 	height: 38rem;
-	padding-right: 10rem;
+	margin-right: 32px;
 }
 #popUpImage {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	img {
-		width: 15rem;
-		height: 15rem;
+		width: 20em;
+		height: auto;
+	}
+}
+
+.bottSpacer {
+	padding:2.5rem;
+}
+footer {
+	display: flex;
+	justify-content: space-around;
+	background-color: $textcolor2;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+	p {
+		background: transparent;
+		color: $background-color_2;
+		font-weight: bold;
+	}
+	a {
+		background: transparent;
+		color: $background-color_2;
+		font-weight: bolder;
 	}
 }
