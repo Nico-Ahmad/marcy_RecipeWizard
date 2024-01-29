@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Recipe Wizard</title>
+    <script type="module" crossorigin src="/marcy_RecipeWizard/assets/index-_VothYFo.js"></script>
+    <link rel="stylesheet" crossorigin href="/marcy_RecipeWizard/assets/index-ZaJmm6Yc.css">
+  </head>
+  <body>
+    </div>
+
+    <header>
+      <h1>Recipe Wizard</h1>
+    </header>
+    
+
+    <main id="app">
+      <!-- DA FORM -->
+
+      <form id="meal-form" aria-label="Search for Recipes based on key ingredients">
+        <h2>Search for Meal</h2>
+        <label for="ingredient-user-input">Enter an ingredient!</label>
+        <div>
+          <p>(Leave Blank for all Recipes)</p>
+          <input type="text" id="ingredient-user-input" name="ingredientUserInput" placeholder="Enter an Ingredient"/>
+          <button class="Submit Button" type="submit">Search</button>
+        </div>
+      </form>
+
+      <!-- DA SEARCHED V: THE PHANTOM PAIN -->
+      <div id="user-searched">
+        <h3 class="seaIngName"></h3>
+        <p class="seaIngrPic"></p>
+      </div>
+
+      <!-- DA INFORMATIONE CARD -->
+      <modal id="modal-wrapper">
+        <aside id="extra-meal-info"></aside>
+      </modal>
+      
+      <!-- DA SEARCH RESULTS  -->
+      <div id="meal-images-container"><!---Meal images/buttons Dynamic--></div>
+
+
+
+      <div class="bottSpacer"></div>
+    </main>
+
+    <footer>
+      <div>
+        <a href="https://github.com/Nico-Ahmad/marcy_RecipeWizard">GitHub Repo</a>
+        <p>By: Nico & Ahmad</p>
+        <a href="https://www.themealdb.com/api.php">TheMealDB</a>
+      </div>
+    </footer>
+  </body>
+</html>
