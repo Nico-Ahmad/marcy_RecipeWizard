@@ -164,7 +164,7 @@ export const renderMeals = (meals) => {
     // Additional styling can be added here
 
     const wizardWalk = document.createElement("img");
-    wizardWalk.src = ("https://github.com/Nico-Ahmad/marcy_RecipeWizard/blob/nico/src/assets/images/wizards/walking.gif?raw=true")
+    wizardWalk.src = ("https://raw.githubusercontent.com/Nico-Ahmad/marcy_RecipeWizard/main/src/assets/images/wizards/walking.gif")
     const wizardTalk = document.createElement("p");
     wizardTalk.textContent = `("Where are those recipes?")`
     wizardTalk.id = "wizardTalk"
