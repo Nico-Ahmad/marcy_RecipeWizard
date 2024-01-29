@@ -7,19 +7,20 @@
     <script type="module" src="src/main.js"></script>
     <title>Recipe Wizard</title>
   </head>
-
-  <div class="w3-sidebar w3-bar-block w3-collapse" style="width:200px;right:0" id="mySidebar">
-
-  </div>
   <body>
+    <!-- Sidebar should be inside the body -->
+    <div class="w3-sidebar w3-bar-block w3-collapse" style="width:200px;right:0" id="mySidebar">
+      <!-- Sidebar content -->
+    </div>
+
     <header>
       <h1>Recipe Wizard</h1>
     </header>
     
     <main id="app">
-      <!-- DA FORM -->
+      <!-- The Form -->
       <form id="meal-form" aria-label="Search for Recipes based on key ingredients">
-        <h2>Search for Meal Recipes!</h2>
+        <h2>Search for Meal
         <label for="ingredient-user-input">Enter an ingredient!</label>
         <div>
           <p>(Leave Blank for all Recipes)</p>
