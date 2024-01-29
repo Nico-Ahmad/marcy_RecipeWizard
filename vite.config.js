@@ -1,14 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
-    outDir: 'dist',
-    rollupOptions: {
-      input: {
-        main: './src/main.js', // Replace with the path to your entry file
-      },
-    },
+    outDir: 'dist' // Change this to your desired output directory
   },
-  publicDir: 'public',
-  base: '/marcy_RecipeWizard/',
-});
+  base: '/marcy_RecipeWizard/' 
+})
