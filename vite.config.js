@@ -1,12 +1,14 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // GitHub Pages expects an index.html in the root directory
-  // so just run npm build before pushing to GitHub and this will rebuild our assets to the root
   build: {
-    outDir: '..', // Change this to 'dist' or similar
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: './src/main.js', // Replace with the path to your entry file
+      },
+    },
   },
-
-  // needed for github pages just put the repo name here
-  base: '/marcy_RecipeWizard/', 
+  publicDir: 'public',
+  base: '/marcy_RecipeWizard/',
 });
