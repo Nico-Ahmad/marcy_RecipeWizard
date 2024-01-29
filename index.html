@@ -2,33 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="src/main.js"></script>
-    <link rel="stylesheet" href="src/style.css">
-    <title>Meal Finder</title>
+    <title>Recipe Wizard</title>
   </head>
+
+  <div class="w3-sidebar w3-bar-block w3-collapse" style="width:200px;right:0" id="mySidebar">
+
+  </div>
   <body>
-    <main>
-    <div id="app">
-      <h1>Meal App</h1>
-      <form id="meal-form" aria-label="find meal by ingredient form">
-        <h2>Find Meals By Ingredients!</h2>
-        <label for="ingredient-user-input"></label>
-        <input
-          type="text"
-          id="ingredient-user-input"
-          name="ingredientUserInput"
-        />
-        <button type="submit"></button>
+    <header>
+      <h1>Recipe Wizard</h1>
+    </header>
+    
+    <main id="app">
+      <!-- DA FORM -->
+      <form id="meal-form" aria-label="Search for Recipes based on key ingredients">
+        <h2>Search for Meal Recipes!</h2>
+        <label for="ingredient-user-input">Enter an ingredient!</label>
+        <div>
+          <p>(Leave Blank for all Recipes)</p>
+          <input type="text" id="ingredient-user-input" name="ingredientUserInput" placeholder="Enter an Ingredient"/>
+          <button class="Submit Button" type="submit">Search</button>
+        </div>
       </form>
-      <div id="modal-wrapper">
-      <div id="extra-meal-info"></div>
-    </div>
-      <div id="meal-images-container">
-        <!---Meal images/buttons Dynamic-->
+
+      <!-- DA SEARCHED V: THE PHANTOM PAIN -->
+      <div id="user-searched">
+        <h3 class="seaIngName"></h3>
+        <p class="seaIngrPic"></p>
       </div>
+
+      <!-- DA INFORMATIONE CARD -->
+      <modal id="modal-wrapper">
+        <aside id="extra-meal-info"></aside>
+      </modal>
+      
+      <!-- DA SEARCH RESULTS  -->
+      <div id="meal-images-container"><!---Meal images/buttons Dynamic--></div>
+
+
+
+      <div class="bottSpacer"></div>
     </main>
+
+    <footer>
+      <div>
+        <a href="https://github.com/Nico-Ahmad/marcy_RecipeWizard">GitHub Repo</a>
+        <p>By: Nico & Ahmad</p>
+        <a href="https://www.themealdb.com/api.php">TheMealDB</a>
+      </div>
+    </footer>
   </body>
 </main>
 </html>

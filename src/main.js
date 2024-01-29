@@ -1,14 +1,15 @@
-import { handleSubmit } from "./dom-utils";
-import { fetcher } from "./fetcher";
-import { renderMeals, renderMealInfo } from "./render";
-
-console.log("Hello world")
+import "./style.css"
+import { handleSubmit } from "./utils/dom-utils";
+import { fetcher } from "./utils/fetcher";
+import { renderMeals, renderMealInfo, renderIngredientSearched, renderNoIngredient } from "./utils/render";
 
 export const fetchAndRenderMealsByIngredient = async (ingredient) => {
   const mealByIngUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
   const mealByIng = await fetcher(mealByIngUrl);
 
+
   if (mealByIng) {
+    renderIngredientSearched(ingredient);
     renderMeals(mealByIng);
 
     for (const meal of mealByIng) {
@@ -18,6 +19,7 @@ export const fetchAndRenderMealsByIngredient = async (ingredient) => {
     }
   } else {
     console.log("no meals");
+    renderNoIngredient()
   }
 };
 
@@ -50,11 +52,28 @@ const handleUserClick = async (e) => {
 }
 
 
-
-
+const imFeelingLucky = () => {
+  const searches = [
+    "chicken breast",
+    "pepper",
+    "lemon",
+    "kale",
+    "orange",
+    "lamb",
+    "broccoli",
+    "strawberries",
+    "bread",
+    "potato",
+    "cheese",
+    "water",
+    "rice",
+  ] ;
+  const ranIdx = Math.floor(Math.random()*searches.length);
+  return searches[ranIdx];
+}
 
 const main = async () => {
-fetchAndRenderMealsByIngredient('chicken breast')
+fetchAndRenderMealsByIngredient(imFeelingLucky())
   const form = document.querySelector("#meal-form");
   form.addEventListener("submit", (event) =>
     handleSubmit(event, fetchAndRenderMealsByIngredient)
@@ -62,6 +81,8 @@ fetchAndRenderMealsByIngredient('chicken breast')
 
   const imgDelegation = document.querySelector('#meal-images-container');
   imgDelegation.addEventListener('click', handleUserClick);
+
+
 };
 
 main();

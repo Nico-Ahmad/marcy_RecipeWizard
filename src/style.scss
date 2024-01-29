@@ -1,0 +1,274 @@
+$background-color_0: rgba(85, 235, 255, 0.411);
+$background-color_1: rgba(4, 0, 59, 0.5);
+$background-color_2: rgb(255, 253, 236);
+$textColor1: rgb(0, 119, 255);
+$textcolor2: rgb(0, 4, 58);
+$textcolor3: rgb(63, 223, 235);
+$textYellow: rgb(255, 238, 0);
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,500;1,400;1,700&display=swap');
+
+/* Add more styles as needed */
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'IBM Plex Mono', monospace;
+	background-color: $background-color_2;
+	// min-height: 100%;
+}
+html {
+	min-height: auto;
+}
+
+header {
+	display: flex;
+	background-color: $background-color_0;
+	// margin-top: 3rem;
+	padding: 3.6rem;
+	padding-top: 5rem;
+	justify-content: center;
+	border-bottom: 1rem solid $textColor1;
+
+	h1 {
+		background-color: transparent;
+		text-align: center;
+		display:flex;
+		font-weight: bolder;
+		font-style: italic;
+		font-size: 400%;
+		color: $textYellow;
+		-webkit-text-stroke: 2px $textColor1;
+	}
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3rem;
+	h2 {
+		display:flex;
+		padding-bottom: 0.5rem;
+	}
+	label {
+		padding-bottom: 0.5rem;
+
+	}
+	input {
+		max-width: 250px;
+		padding: 10px 5px;
+		float: left;
+		color: rgb(112, 112, 112);
+		border: 10;
+		padding-bottom: 0.5rem;
+		// background: transparent;
+		border-radius: 1em 0 0 1em;
+	}
+	p {
+		color: gray;
+		font-size: 80%;
+		text-align: center;
+		padding-bottom: 0.5rem;
+	}
+	button {
+		min-width: 60px;
+		max-width: 90px;
+		position: relative;
+		float: right;
+		border: 10;
+		padding: 0;
+		height: 40px;
+		width: 120px;
+		color: $textColor1;
+		background: transparent;
+		border-left: 1px solid #fff;
+		border-radius: 0 1em 1em 0;
+	}
+	#ingredient-user-input {
+		text-align: left;
+	}
+}
+
+// da ingredient searched
+
+#user-searched {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	#div-text {
+		justify-content: center;
+		h3 {
+			// max-width: 4rem;
+			font-style: italic;
+		}
+	}
+	#div-imgPicAndName {
+		justify-content: center;
+		margin-left: 2rem;
+		p {
+			text-align: center;
+		}
+		img {
+			max-height: 5em;
+			border: 2px solid $background-color_1;
+			background-color: white;
+		}
+	}
+}
+
+
+// the meal buttons
+#meal-images-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	// flex-direction: column;
+	justify-content: center;
+	margin-left: 10em;
+	margin-right: 10em;
+	#searchErrorState {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		p{
+			text-align: center;
+			
+		}
+		img {
+			max-width: 50rem;
+		}
+		#wizardTalk {
+			color: gray;
+			font-style: italic;
+			font-size: medium;
+		}
+	}
+}
+.each-image {
+	img {
+		width: 10em;
+		margin: 2rem;
+		border: 2px solid $background-color_1;
+		border-radius: 35px 35px 35px 35px;
+		
+		height: auto;
+	}
+}
+
+// meal card
+
+// @media only screen and (max-device-width: 1366px) {
+// 	.parallax {
+// 	  background-attachment: scroll;
+// 	}
+//   }
+#modal-wrapper {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $background-color_1;
+
+}
+
+
+
+#extra-meal-info {
+	display: flex;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $background-color_2;
+	padding: 20px;
+	border: 5px solid $background-color_0;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	z-index: 1000;
+	max-height: 80vh;
+	box-sizing: border-box;
+	border-radius: 10px;
+	width: fit-content;
+	color: $textcolor2;
+	h2 {
+		margin-top: 0;
+		padding-bottom: 2rem;
+		font-weight: bolder;
+		font-size: xx-large;
+	}
+	h3 {
+		margin-top: 0;
+		padding-top: 2rem;
+		font-weight: bolder;
+		font-style: italic;
+	}
+	li {
+		margin-left:1rem;
+	}
+	p {
+		margin-left:1rem;
+		margin-bottom: 1rem;
+	}
+	iframe {
+		display:flex;
+		margin-top: 0;
+		align-items: center;
+		color: $textcolor3;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	img {
+		width: 10em;
+		margin: 2rem;
+		border: 2px solid $background-color_1;
+		border-radius: 35px 35px 35px 35px;
+		
+		height: auto;
+	}
+}
+#popUpTextContent {
+	overflow: scroll;
+	width: 20rem;
+	height: 38rem;
+	margin-right: 32px;
+}
+#popUpImage {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	img {
+		width: 20em;
+		height: auto;
+	}
+}
+
+.bottSpacer {
+	padding:2.5rem;
+}
+
+footer {
+	div {
+		display: flex;
+		justify-content: space-around;
+		background-color: $textcolor2;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		height: 2rem;
+		width: 100%;
+		overflow: hidden;
+		p {
+			background: transparent;
+			color: $background-color_2;
+			font-weight: bold;
+		}
+		a {
+			background: transparent;
+			color: $background-color_2;
+			font-weight: bolder;
+		}
+	}
+}
